@@ -2,17 +2,15 @@ import * as fs from 'fs';
 import * as inquirer from 'inquirer';
 import fetch from 'node-fetch';
 import open from 'open';
-import * as path from 'path';
 import { URL, URLSearchParams } from 'url';
 import { AuthConfig } from '../types/auth';
 
-const configDirectory = 'cfg';
-const configPath = path.resolve(configDirectory, 'cfg.json');
+const configFile = 'config.json'
 
 const storeSettings = async (settings) => {
   // store settings
   return fs.promises.writeFile(
-    configPath,
+    configFile,
     JSON.stringify(settings, undefined, 2),
     { encoding: 'utf-8' }
   );
@@ -38,7 +36,7 @@ const exchangeToken = async (code: string, settings: AuthConfig) => {
 export const getSettings = async (): Promise<AuthConfig> => {
   let settings: AuthConfig = JSON.parse(
     await fs.promises
-      .readFile(configPath, { encoding: 'utf-8' })
+      .readFile(configFile, { encoding: 'utf-8' })
       .catch(() => '{}')
   );
   const edgeTimestamp = Math.ceil(new Date().getTime() / 1000 + 1800);

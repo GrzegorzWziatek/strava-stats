@@ -22,8 +22,9 @@ const main = async (local = false) => {
 
   const stats = prepareStats(activities);
   const reportData = generateReport(stats, stravaRequest.athlete?.firstname || '');
+  await fs.promises.writeFile('stats.json', JSON.stringify(stats, undefined, 2), { encoding: 'utf-8' });
   await fs.promises.writeFile('report.html', reportData, { encoding: 'utf-8' });
   console.log('Report generated.');
 };
 
-main(true);
+main(false);

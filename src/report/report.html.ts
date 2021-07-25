@@ -9,12 +9,38 @@ export const html = `
 <!--  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> @TODO one day add charts -->
  <style type="text/css">
   html { font-size: 12px; }
+  .distance .row, .time .row { margin-bottom: 1rem; }
+  ul.scrollable-list { max-height: 200px; overflow-y: auto;}
   </style>
 </head>
 <body>
 
 <div class="container">
   <h1 class="text-center">Strava stats</h1>
+
+  <div class="distance">
+    <h4>Distance by year</h4>
+    <div class="row">
+      {{distanceByYear}}
+    </div>
+
+    <h4>Distance by year and month</h4>
+    <div class="row">
+      {{distanceByYearAndMonth}}
+    </div>
+  </div>
+
+   <div class="time">
+    <h4>Time by year</h4>
+    <div class="row">
+      {{timeByYear}}
+    </div>
+
+    <h4>Time by year and month</h4>
+    <div class="row">
+      {{timeByYearAndMonth}}
+    </div>
+  </div>
 
   <div class="top-distances">
     <h4> Top distances </h4>

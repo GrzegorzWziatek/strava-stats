@@ -21,5 +21,6 @@ Stats are grouped by activity type. And html report and json data will be genera
 * open app in your terminal or cmd. 
 * follow application instructions
 * if you will open by doubleclick it will save report data to your home direcotry
+* macos/linux user might need to run `chmod +x` on release file in order to allow executing it
 
 

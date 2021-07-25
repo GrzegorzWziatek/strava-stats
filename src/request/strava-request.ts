@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import { URL } from 'url';
 import { getSettings } from '../auth/auth';
 import fetch from 'node-fetch';
@@ -8,6 +9,8 @@ export class StravaRequest {
   inited = false;
   settings: AuthConfig = null;
   athlete: SummaryAthlete;
+
+  constructor(private readonly local = false) {}
 
   async init() {
     if (this.inited) {
@@ -39,6 +42,14 @@ export class StravaRequest {
         await new Promise((resolve) => setTimeout(resolve, 1000));
       }
       console.log('Total activities: ', records.length);
+      if (!this.local) {
+        await fs.promises.writeFile(
+          'activities.json',
+          JSON.stringify(records, undefined, 2),
+          { encoding: 'utf-8' }
+        );
+        console.log('activities.json file written')
+      }
       resolve(records);
     });
   }

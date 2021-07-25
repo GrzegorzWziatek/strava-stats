@@ -3,9 +3,8 @@ import { generateReport } from './report/generate-report';
 import { StravaRequest } from './request/strava-request';
 import { prepareStats } from './stats/stats';
 
-const stravaRequest = new StravaRequest();
-
 const main = async (local = false) => {
+  const stravaRequest = new StravaRequest(local);
   let activities;
 
   if (local) {
@@ -27,4 +26,4 @@ const main = async (local = false) => {
   console.log('Report generated.');
 };
 
-main(false);
+main(true);

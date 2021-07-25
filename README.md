@@ -16,4 +16,10 @@ Stats are grouped by activity type. And html report and json data will be genera
 * follow application instructions
 * stats will be downloaded and report.html file will be generated (alongside with raw activity data & stats json file)
 
+## How to use app from release
+* download app from release page: [https://github.com/GrzegorzWziatek/strava-stats/releases/tag/1.0.0](https://github.com/GrzegorzWziatek/strava-stats/releases/tag/1.0.0)
+* open app in your terminal or cmd. 
+* follow application instructions
+* if you will open by doubleclick it will save report data to your home direcotry
+
 
